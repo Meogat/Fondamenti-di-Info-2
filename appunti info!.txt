@@ -760,6 +760,23 @@ Interfaccia SortedMap<K, V>:
 Libreria Collections: ha funzioni statiche per operare sulle collezioni, in particolare 'sort' e 'binarySearch' sono i più usati
 
 
+CERCARE PER INDICE IN UN SET 
+
+private SortedSet<Contact> contactSet;
+
+public Optional<Contact> getContact(int index) {
+		List<Contact> list = new ArrayList<Contact> (contactSet);
+		if (index < list.size()&& index>=0)
+			return Optional.of(list.get(index));
+		/* SOLUZIONE ALTERNATIVA
+		int = 0;
+		for (Contact contact : contactSet) {
+			if (i == index)
+				return contact;
+			i++;
+		}*/
+		return Optional.empty();
+	}
 
 
 ECCEZIONI
@@ -767,7 +784,7 @@ sono allarmi programmati lanciati da un'operazione quando si verifica una situaz
 
 si usa:
 	try { // operazione critica } 
-	catch (tipoEccezione e) {// in caso di problemi 
+	catch (tipoEccezione e) {// in caso di problemi thir new ...exception..
 			//si continua qui}
 	// se tutto va bene
 	// si prosegue qui
